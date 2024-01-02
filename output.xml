@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.10.4 on darwin)" generated="20240102 23:19:36.242" rpa="false" schemaversion="3">
+<suite id="s1" name="Parkee Api" source="/Users/cinemaxxi/rsaputra/parkee_api_test/TestCase/parkee_api.robot">
+<test id="s1-t1" name="Positive Cases" line="5">
+<kw name="Get Method" library="API">
+<var>${response}</var>
+<arg>service_name=Get Data</arg>
+<arg>service_url=https://reqres.in/api/users</arg>
+<arg>uri=/users</arg>
+<doc>Get request</doc>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>${service_name}</arg>
+<arg>${service_url}</arg>
+<arg>verify=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20240102 23:19:36.327" level="INFO">Creating Session using : alias=Get Data, url=https://reqres.in/api/users, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20240102 23:19:36.327" endtime="20240102 23:19:36.327"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${service_url}</arg>
+<arg>params=${parameter}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20240102 23:19:36.454" level="INFO">GET Request : url=https://reqres.in/api/users 
+ path_url=/api/users 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20240102 23:19:36.454" level="INFO">GET Response : url=https://reqres.in/api/users 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 02 Jan 2024 16:19:36 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1704191114&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=1Xx8QceBa7sUfG3YAk%2FYATivb5nTnhvy%2Fegr3h%2Fg2vo%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1704191114&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=1Xx8QceBa7sUfG3YAk%2FYATivb5nTnhvy%2Fegr3h%2Fg2vo%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"3e4-2RLXvr5wTg9YQ6aH95CkYoFNuO8"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '5631', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '83f45318fecd87fc-SIN', 'Content-Encoding': 'br'} 
+ body={"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},{"id":3,"email":"emma.wong@reqres.in","first_name":"Emma","last_name":"Wong","avatar":"https://reqres.in/img/faces/3-image.jpg"},{"id":4,"email":"eve.holt@reqres.in","first_name":"Eve","last_name":"Holt","avatar":"https://reqres.in/img/faces/4-image.jpg"},{"id":5,"email":"charles.morris@reqres.in","first_name":"Charles","last_name":"Morris","avatar":"https://reqres.in/img/faces/5-image.jpg"},{"id":6,"email":"tracey.ramos@reqres.in","first_name":"Tracey","last_name":"Ramos","avatar":"https://reqres.in/img/faces/6-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg timestamp="20240102 23:19:36.454" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20240102 23:19:36.327" endtime="20240102 23:19:36.454"/>
+</kw>
+<msg timestamp="20240102 23:19:36.454" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20240102 23:19:36.327" endtime="20240102 23:19:36.454"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${response}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240102 23:19:36.455" level="INFO">${response} = {'page': 1, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-i...</msg>
+<status status="PASS" starttime="20240102 23:19:36.455" endtime="20240102 23:19:36.455"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240102 23:19:36.455" level="INFO">{'page': 1, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-image.jpg'}, {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}, {'id': 3, 'email': 'emma.wong@reqres.in', 'first_name': 'Emma', 'last_name': 'Wong', 'avatar': 'https://reqres.in/img/faces/3-image.jpg'}, {'id': 4, 'email': 'eve.holt@reqres.in', 'first_name': 'Eve', 'last_name': 'Holt', 'avatar': 'https://reqres.in/img/faces/4-image.jpg'}, {'id': 5, 'email': 'charles.morris@reqres.in', 'first_name': 'Charles', 'last_name': 'Morris', 'avatar': 'https://reqres.in/img/faces/5-image.jpg'}, {'id': 6, 'email': 'tracey.ramos@reqres.in', 'first_name': 'Tracey', 'last_name': 'Ramos', 'avatar': 'https://reqres.in/img/faces/6-image.jpg'}], 'support': {'url': 'https://reqres.in/#support-heading', 'text': 'To keep ReqRes free, contributions towards server costs are appreciated!'}}</msg>
+<status status="PASS" starttime="20240102 23:19:36.455" endtime="20240102 23:19:36.455"/>
+</kw>
+<doc>Positive Cases</doc>
+<status status="PASS" starttime="20240102 23:19:36.326" endtime="20240102 23:19:36.455"/>
+</test>
+<status status="PASS" starttime="20240102 23:19:36.243" endtime="20240102 23:19:36.456"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Parkee Api">Parkee Api</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
